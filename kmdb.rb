@@ -320,12 +320,13 @@ puts ""
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
 
-batman_1 = Movie.find_by({ "title" => "Batman Begins" })
-actors_bat1 = Character.where({ "movie_id" => batman_1["id"] })
+#batman_1 = Movie.find_by({ "title" => "Batman Begins" })
+actors_bat1 = Character.all
 
 for list2 in actors_bat1
     
-    a = batman_1["title"]
+    movie = Movie.find_by({ "id" => list2["movie_id"] })
+    a = movie["title"]
     actor = Actor.find_by({"id" => list2["actor_id"]})
     b = actor["name"]
     c = list2["char_name"]
